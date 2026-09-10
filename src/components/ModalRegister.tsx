@@ -51,6 +51,7 @@ export default function ModalRegister({ onClose }: { onClose: () => void }) {
     // key: keyof RegisterForm บังคับว่า parameter key ที่ส่งเข้ามา ต้องเป็น 
     // ชื่อฟิลด์ที่มีจริง ใน Type หรือ Interface ที่ชื่อ RegisterForm เท่านั้น(เช่น "firstName", "email", "password") หากพิมพ์ผิดแม้แต่ตัวเดียว TypeScript จะแจ้ง Warning ทันที
     // value: string คือ ค่าใหม่ที่ต้องการนำไปอัปเดตลงในฟิลด์นั้นๆ(มักมาจาก e.target.value ของช่อง Input)
+    // prev ไม่ใช่ตัวแปรที่เราประกาศเอง แต่เป็นค่า State ล่าสุด ที่ React เป็นคนส่งเข้าฟังก์ชันมาให้เราโดยอัตโนมัติ
     setForm((prev) => ({ ...prev, [key]: value }));
     // [key]: value คือ ระบุชื่อฟิลด์แบบ Dynamic และแทรกค่าใหม่เข้าไปทับ!!!ฟิลด์นั้นๆ
     // มันคือการ copyค่าเดิมๆคือfiledอื่นๆเก็บไว้ แต่filedที่เราจะแก้ไขอะ มันจะเขียนทับค่าไปเลย
