@@ -153,7 +153,8 @@ export default function ModalRegister({ onClose }: { onClose: () => void }) {
                   {/* 5.5. การแสดงสถานะ Error บน Bootstrap Form (is-invalid) */}
                   <input
                     className={`form-control ${errors.fname ? "is-invalid" : ""}`}
-                    // ไม่ใช้ ${ ... } Browser จะมองเห็นข้อความทั้งหมดเป็นชื่อ Class ตรงๆ
+                    // ถ้าเกิด ${ ... } Browser จะมองเห็นข้อความทั้งหมดเป็นชื่อ Class ตรงๆ
+                    // ${...} จะทำการ "ปลด" หรือ "ถอด" เครื่องหมาย "" ออก แล้วเอาแค่ข้อความข้างในมาต่อกัน เป็น String ก้อนเดียวกันครับ
                     // เอาค่า errors.fname มาใช้เช็คตรงนี้ ถ้าเป็น true จะคืนค่าเป็น is-invalid ให้แสดงขอบสีแดง 
                     onChange={(e) => updateForm("fname", e.target.value)} // เปลี่ยนค่าstateโดยใช้useStateในทุกๆการเปลี่ยนแปลงแบบทุกๆตัวอักษรที่พิมพ์
                     value={form.fname} //การเอาค่า state เอาแสดงผลตรงนีั
